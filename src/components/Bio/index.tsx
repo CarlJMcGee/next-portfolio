@@ -35,10 +35,10 @@ export default function Bio(props: IBioProps) {
         className="mr-10"
       />
       <p className="m-4 flex-1 text-lg text-white">
-        I'm a new junior developer fresh out of coding bootcamp. I'm leaving a
-        five year career in Phlebotomy and blood product donation to persue a
-        career in web development and I'm ready to take on new opportunities and
-        challenges.
+        <span className="text-3xl">I'm a new junior developer</span> fresh out
+        of coding bootcamp. I'm leaving a five year career in Phlebotomy and
+        blood product donation to persue a career in web development and I'm
+        ready to take on new opportunities and challenges.
         <br />
         <br />
         I have recently received a Full Stack Web Development certificate from
