@@ -7,7 +7,21 @@ export interface IBioProps {}
 
 export default function Bio(props: IBioProps) {
   return (
-    <motion.div className="m-10 flex p-2 align-middle">
+    <motion.div
+      className="m-10 flex p-2 align-middle"
+      initial={{
+        x: -50,
+        opacity: "0%",
+      }}
+      animate={{
+        x: 0,
+        opacity: "100%",
+      }}
+      transition={{
+        type: "tween",
+        duration: 0.8,
+      }}
+    >
       <Image
         src={headShot.src}
         alt="Carl McGee headshot"
