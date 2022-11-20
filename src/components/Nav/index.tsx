@@ -3,6 +3,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import React, { useState } from "react";
 import { LinkButton } from "../Button";
 import { IconMenu2 } from "@tabler/icons";
+import { motion } from "framer-motion";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -11,7 +12,19 @@ export default function Nav() {
   });
 
   return (
-    <div className="flex w-full flex-col justify-center bg-gradient-to-r from-blue-light to-turquoise-dark shadow-xl md:justify-between lg:flex-row">
+    <motion.div
+      initial={{
+        y: -150,
+      }}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        type: "tween",
+        duration: 0.8,
+      }}
+      className="flex w-full flex-col justify-center bg-gradient-to-tr from-blue-light to-purple-dark shadow-xl md:justify-between lg:flex-row"
+    >
       <h1 className="m-3 text-center text-6xl font-bold text-white lg:text-left">
         Carl McGee
       </h1>
@@ -42,6 +55,6 @@ export default function Nav() {
           <LinkButton href="/resume">Resume</LinkButton>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
