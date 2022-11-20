@@ -10,7 +10,7 @@ export default class _Document extends Document {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="min-h-screen min-w-full bg-gradient-to-br from-purple-light to-purple-dark">
           <Main />
           <NextScript />
         </body>
