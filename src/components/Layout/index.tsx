@@ -1,4 +1,5 @@
 import * as React from "react";
+import Foot from "../Foot";
 import Nav from "../Nav";
 
 export default function Layout({ children }: React.PropsWithChildren) {
@@ -6,6 +7,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
     <>
       <Nav />
       {children}
+      <Foot />
     </>
   );
 }
