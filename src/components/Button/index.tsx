@@ -3,9 +3,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import * as React from "react";
 
-export function Button({ children }: React.PropsWithChildren) {
+interface IButtonProps extends React.PropsWithChildren {
+  onClick: (() => any) | (() => void);
+}
+
+export function Button({ children, onClick }: IButtonProps) {
   return (
     <motion.button
+      onClick={onClick}
       className="mx-3 rounded-md bg-blue-dark px-4 hover:bg-purple-dark"
       initial={{
         scale: "100%",
