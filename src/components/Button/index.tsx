@@ -31,9 +31,9 @@ export function LinkButton({ href, children }: ILinkButtonProps) {
   const router = useRouter();
 
   return (
-    <Link href={href}>
+    <Link href={href} className="my-2 mx-auto md:m-0">
       <motion.button
-        className={`mx-3 h-full rounded-md px-5 ${
+        className={`mx-3 h-full rounded-md px-10 py-3 ${
           router.pathname === href
             ? "bg-purple-300 text-black"
             : "bg-blue-dark text-white shadow-xl hover:bg-purple-dark"
