@@ -35,7 +35,6 @@ export default function Nav() {
               <LinkButton href="/">Home</LinkButton>
               <LinkButton href="/projects">Projects</LinkButton>
               <LinkButton href="/contact">Contact</LinkButton>
-              <LinkButton href="/resume">Resume</LinkButton>
             </div>
           </Collapse>
           <ActionIcon
@@ -52,7 +51,6 @@ export default function Nav() {
           <LinkButton href="/">Home</LinkButton>
           <LinkButton href="/projects">Projects</LinkButton>
           <LinkButton href="/contact">Contact</LinkButton>
-          <LinkButton href="/resume">Resume</LinkButton>
         </div>
       )}
     </motion.div>
