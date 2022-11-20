@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 import Nav from "../components/Nav";
+import Bio from "../components/Bio";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="min-h-screen bg-gradient-to-br from-purple-light to-purple-dark">
         <Nav />
+        <Bio />
       </main>
     </>
   );
