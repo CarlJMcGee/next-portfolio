@@ -3,9 +3,7 @@ import { Image } from "@mantine/core/";
 import * as React from "react";
 import headShot from "./assets/Headshot.jpg";
 
-export interface IBioProps {}
-
-export default function Bio(props: IBioProps) {
+export default function Bio() {
   return (
     <motion.div
       className="m-10 flex p-2 align-middle"

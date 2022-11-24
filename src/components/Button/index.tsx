@@ -2,16 +2,20 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import * as React from "react";
+import { type } from "os";
 
 interface IButtonProps extends React.PropsWithChildren {
-  onClick: (() => any) | (() => void);
+  onClick?: (() => any) | (() => void);
+  type?: "button" | "submit" | "reset" | undefined;
+  classname?: string;
 }
 
-export function Button({ children, onClick }: IButtonProps) {
+export function Button({ children, onClick, type, classname }: IButtonProps) {
   return (
     <motion.button
+      type={type}
       onClick={onClick}
-      className="mx-3 rounded-md bg-blue-dark px-4 hover:bg-purple-dark"
+      className={`mx-3 rounded-md bg-blue-dark px-4 hover:bg-purple-dark ${classname}`}
       initial={{
         scale: "100%",
       }}
@@ -30,19 +34,30 @@ export function Button({ children, onClick }: IButtonProps) {
 
 export interface ILinkButtonProps extends React.PropsWithChildren {
   href: string;
+  onClick?: (() => any) | (() => void);
+  type?: "button" | "submit" | "reset" | undefined;
+  classname?: string;
 }
 
-export function LinkButton({ href, children }: ILinkButtonProps) {
+export function LinkButton({
+  href,
+  children,
+  onClick,
+  type,
+  classname,
+}: ILinkButtonProps) {
   const router = useRouter();
 
   return (
     <Link href={href} className="my-2 mx-auto md:m-0">
       <motion.button
+        onClick={onClick}
+        type={type}
         className={`mx-3 h-full rounded-md px-10 py-3 ${
           router.pathname === href
             ? "bg-purple-300 text-black"
             : "bg-blue-dark text-white shadow-xl hover:bg-purple-dark"
-        }`}
+        } ${classname}`}
         initial={{
           scale: "100%",
         }}

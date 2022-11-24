@@ -14,13 +14,17 @@ export const projectRouter = router({
         repo: z.string(),
         link: z.string(),
         img: z.string(),
-        me_id: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
       const Project = ctx.prisma.project;
 
-      const newProject = await Project.create({ data: input });
+      const newProject = await Project.create({
+        data: {
+          ...input,
+          me_id: ctx.session.user.id,
+        },
+      });
       return `Project "${newProject.name}" added!`;
     }),
   edit: protectedProcedure
@@ -33,7 +37,6 @@ export const projectRouter = router({
         repo: z.string().optional(),
         link: z.string().optional(),
         img: z.string().optional(),
-        me_id: z.string().optional(),
       })
     )
     .mutation(async ({ ctx, input }) => {
