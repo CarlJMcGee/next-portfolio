@@ -4,11 +4,12 @@ import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { Button } from "../../components/Button";
-import { ProjectCard } from "../../components/ProjectCard";
+import { MotionProjectCard } from "../../components/ProjectCard";
 import { trpc } from "../../utils/trpc";
 
 const Page: NextPage = () => {
   const utils = trpc.useContext();
+
   const { data } = useSession();
   const { data: projects } = trpc.project.getAll.useQuery();
   const { mutate: addProject } = trpc.project.new.useMutation({
@@ -101,9 +102,34 @@ const Page: NextPage = () => {
           </Button>
         </form>
       </Modal>
-      <motion.div className="col-span-1  grid grid-cols-2 justify-items-center">
+      <motion.div
+        className={`col-span-1 grid grid-cols-2 justify-items-center`}
+      >
         {projects &&
-          projects.map((project) => <ProjectCard project={project} />)}
+          projects.map((project) => (
+            <MotionProjectCard
+              initial={{
+                opacity: "0%",
+                scaleY: "0%",
+                scale: "100%",
+              }}
+              animate={{
+                opacity: "100%",
+                scaleY: "100%",
+              }}
+              transition={{
+                type: "tween",
+                duration: 0.8,
+              }}
+              whileHover={{
+                scale: "150%",
+                left: "auto",
+                right: "auto",
+              }}
+              key={project.id}
+              project={project}
+            />
+          ))}
       </motion.div>
     </>
   );
