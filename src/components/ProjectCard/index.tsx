@@ -18,7 +18,6 @@ const ProjectCardStatic = React.forwardRef(
     const { hovered, ref: cardRef } = useHover();
     const mergedRef = useMergedRef(ref, cardRef);
 
-    // TODO: fix non hovered cards hight changing (check grid docs?)
     return (
       <Card
         key={project.id}
@@ -26,29 +25,28 @@ const ProjectCardStatic = React.forwardRef(
         shadow={"lg"}
         radius="md"
         my={"md"}
-        className="w-2/3 bg-gradient-to-br from-slate-500 to-slate-600"
+        className="w-2/3 bg-turquoise-light hover:z-50 hover:row-span-1"
       >
-        <Card.Section withBorder py={"sm"}>
+        <Card.Section py={"sm"} className={"bg-turquoise-light"}>
           <Group position="center">
-            <h3>{project.name}</h3>
+            <h3 className="text-white">{project.name}</h3>
           </Group>
         </Card.Section>
-        {/* // TODO: make animation smoother */}
         {hovered && (
           <MotionCardSection
             initial={{
               opacity: "0%",
-              scaleY: 0,
+              x: -200,
             }}
             animate={{
               opacity: "100%",
-              scaleY: "100%",
+              x: 0,
             }}
             transition={{
               type: "tween",
               duration: 0.2,
             }}
-            m={"sm"}
+            m={5}
           >
             <Stack justify={"center"}>
               <p>{project.desc}</p>

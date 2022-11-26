@@ -119,7 +119,7 @@ const Page: NextPage = () => {
               }}
               transition={{
                 type: "tween",
-                duration: 0.8,
+                duration: 0.5,
               }}
               whileHover={{
                 scale: "150%",
