@@ -6,6 +6,7 @@ import {
   Modal,
   TextInput,
   Textarea,
+  Badge,
 } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 import { Project } from "@prisma/client";
@@ -34,14 +35,7 @@ const ProjectCardStatic = React.forwardRef(
     const utils = trpc.useContext();
 
     const [openned, setOpen] = useState(false);
-    const [form, setForm] = useState<{
-      name?: string;
-      desc?: string;
-      tech?: string;
-      repo?: string;
-      link?: string;
-      img?: string;
-    } | null>(null);
+    const [form, setForm] = useState({ ...project });
 
     const { mutate: editProject } = trpc.project.edit.useMutation({
       onSuccess: () => {
@@ -65,7 +59,6 @@ const ProjectCardStatic = React.forwardRef(
       }
 
       editProject({ ...form, id: project.id });
-      setForm(null);
       setOpen(false);
     };
 
@@ -98,7 +91,7 @@ const ProjectCardStatic = React.forwardRef(
                 type: "tween",
                 duration: 0.2,
               }}
-              m={5}
+              m={3}
             >
               {sess?.user ? (
                 <Group position="right">
@@ -122,10 +115,31 @@ const ProjectCardStatic = React.forwardRef(
                   </Button>
                 </Group>
               ) : null}{" "}
-              <Stack justify={"center"}>
-                <p>{project.desc}</p>
-                <p>{project.tech}</p>
-                <a href={project.link}>{project.link}</a>
+              <Stack justify={"center"} className="text-white">
+                <p className="">{project.desc}</p>
+                <Group>
+                  {project.tech.split(", ").map((x) => (
+                    <Badge
+                      color={"violet"}
+                      variant={"light"}
+                      className="bg-violet-300"
+                    >
+                      {x}
+                    </Badge>
+                  ))}
+                </Group>
+                <a
+                  className="text-purple-light hover:text-purple-dark"
+                  href={project.repo}
+                >
+                  {project.repo}
+                </a>
+                <a
+                  className="text-purple-light hover:text-purple-dark"
+                  href={project.link}
+                >
+                  {project.link}
+                </a>
               </Stack>
             </MotionCardSection>
           )}
