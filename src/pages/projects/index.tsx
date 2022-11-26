@@ -10,7 +10,7 @@ import { trpc } from "../../utils/trpc";
 const Page: NextPage = () => {
   const utils = trpc.useContext();
 
-  const { data } = useSession();
+  const { data: sess } = useSession();
   const { data: projects } = trpc.project.getAll.useQuery();
   const { mutate: addProject } = trpc.project.new.useMutation({
     onSuccess: () => {
@@ -45,7 +45,7 @@ const Page: NextPage = () => {
   return (
     <>
       <br />
-      {data?.user && (
+      {sess?.user && (
         <Button classname="py-2" onClick={() => setOpen(true)}>
           Add Project
         </Button>
@@ -128,6 +128,7 @@ const Page: NextPage = () => {
               }}
               key={project.id}
               project={project}
+              sess={sess}
             />
           ))}
       </motion.div>

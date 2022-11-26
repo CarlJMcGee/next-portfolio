@@ -8,14 +8,23 @@ interface IButtonProps extends React.PropsWithChildren {
   onClick?: (() => any) | (() => void);
   type?: "button" | "submit" | "reset" | undefined;
   classname?: string;
+  color?: string;
+  hover?: string;
 }
 
-export function Button({ children, onClick, type, classname }: IButtonProps) {
+export function Button({
+  children,
+  onClick,
+  type,
+  classname,
+  color = "bg-blue-dark",
+  hover = "hover:bg-purple-dark",
+}: IButtonProps) {
   return (
     <motion.button
       type={type}
       onClick={onClick}
-      className={`mx-3 rounded-md bg-blue-dark px-4 hover:bg-purple-dark ${classname}`}
+      className={`mx-3 rounded-md px-4 ${color} ${hover} ${classname}`}
       initial={{
         scale: "100%",
       }}
