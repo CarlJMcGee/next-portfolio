@@ -70,7 +70,7 @@ const ProjectCardStatic = React.forwardRef(
           shadow={"lg"}
           radius="md"
           my={"md"}
-          className="w-2/3 bg-turquoise-light hover:z-50 hover:row-span-1"
+          className="w-2/3 bg-turquoise-light hover:z-50 hover:row-span-3"
         >
           <Card.Section py={"sm"} className={"bg-turquoise-light"}>
             <Group position="center">
@@ -120,9 +120,9 @@ const ProjectCardStatic = React.forwardRef(
                 <Group>
                   {project.tech.split(", ").map((x) => (
                     <Badge
-                      color={"violet"}
+                      key={x + " badge"}
                       variant={"light"}
-                      className="bg-violet-300"
+                      className="bg-violet-500 bg-opacity-60 text-white"
                     >
                       {x}
                     </Badge>

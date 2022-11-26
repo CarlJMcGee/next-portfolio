@@ -42,6 +42,35 @@ const Page: NextPage = () => {
     setOpen(false);
   };
 
+  const projectContainerVar = {
+    hidden: {
+      opacity: "0%",
+    },
+    show: {
+      opacity: "100%",
+      transition: {
+        delayChildren: 1,
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const projectVar = {
+    hidden: {
+      opacity: "0%",
+      scaleY: "0%",
+      scale: "100%",
+    },
+    show: {
+      opacity: "100%",
+      scaleY: "100%",
+      transition: {
+        type: "tween",
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <>
       <br />
@@ -103,20 +132,15 @@ const Page: NextPage = () => {
         </form>
       </Modal>
       <motion.div
+        variants={projectContainerVar}
+        initial="hidden"
+        animate="show"
         className={`col-span-1 grid grid-cols-2 justify-items-center`}
       >
         {projects &&
-          projects.map((project) => (
+          projects.map((project, i) => (
             <MotionProjectCard
-              initial={{
-                opacity: "0%",
-                scaleY: "0%",
-                scale: "100%",
-              }}
-              animate={{
-                opacity: "100%",
-                scaleY: "100%",
-              }}
+              variants={projectVar}
               transition={{
                 type: "tween",
                 duration: 0.5,
@@ -125,6 +149,11 @@ const Page: NextPage = () => {
                 scale: "150%",
                 left: "auto",
                 right: "auto",
+                transition: {
+                  type: "tween",
+                  duration: 0.5,
+                  delay: 0,
+                },
               }}
               key={project.id}
               project={project}
