@@ -8,7 +8,7 @@ import {
   Textarea,
   Badge,
 } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import { useHover, useMediaQuery } from "@mantine/hooks";
 import { Project } from "@prisma/client";
 import { motion } from "framer-motion";
 import * as React from "react";
@@ -48,6 +48,9 @@ const ProjectCardStatic = React.forwardRef(
       },
     });
 
+    const mobile = useMediaQuery("(max-width: 640px)", true, {
+      getInitialValueInEffect: false,
+    });
     const { hovered, ref: cardRef } = useHover();
     const mergedRef = useMergedRef(ref, cardRef);
 
@@ -77,7 +80,7 @@ const ProjectCardStatic = React.forwardRef(
               <h3 className="text-white">{project.name}</h3>
             </Group>
           </Card.Section>
-          {hovered && (
+          {(hovered || mobile) && (
             <MotionCardSection
               initial={{
                 opacity: "0%",
@@ -129,13 +132,13 @@ const ProjectCardStatic = React.forwardRef(
                   ))}
                 </Group>
                 <a
-                  className="text-purple-light hover:text-purple-dark"
+                  className="w-fit text-purple-light hover:text-purple-dark"
                   href={project.repo}
                 >
                   {project.repo}
                 </a>
                 <a
-                  className="text-purple-light hover:text-purple-dark"
+                  className="w-fit text-purple-light hover:text-purple-dark"
                   href={project.link}
                 >
                   {project.link}

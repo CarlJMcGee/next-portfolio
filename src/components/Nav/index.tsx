@@ -32,9 +32,15 @@ export default function Nav() {
         <>
           <Collapse in={open} className="mx-auto w-full md:mx-0">
             <div className="m-5 flex flex-col justify-center sm:flex-row">
-              <LinkButton href="/">Home</LinkButton>
-              <LinkButton href="/projects">Projects</LinkButton>
-              <LinkButton href="/contact">Contact</LinkButton>
+              <LinkButton href="/" onClick={() => setOpen(false)}>
+                Home
+              </LinkButton>
+              <LinkButton href="/projects" onClick={() => setOpen(false)}>
+                Projects
+              </LinkButton>
+              <LinkButton href="/contact" onClick={() => setOpen(false)}>
+                Contact
+              </LinkButton>
             </div>
           </Collapse>
           <ActionIcon

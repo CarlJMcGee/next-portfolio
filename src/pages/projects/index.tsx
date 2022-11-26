@@ -49,8 +49,7 @@ const Page: NextPage = () => {
     show: {
       opacity: "100%",
       transition: {
-        delayChildren: 1,
-        staggerChildren: 0.5,
+        staggerChildren: 0.2,
       },
     },
   };
@@ -135,7 +134,7 @@ const Page: NextPage = () => {
         variants={projectContainerVar}
         initial="hidden"
         animate="show"
-        className={`col-span-1 grid grid-cols-2 justify-items-center`}
+        className={`col-span-1 grid grid-cols-1 justify-items-center md:grid-cols-2`}
       >
         {projects &&
           projects.map((project, i) => (
@@ -146,7 +145,17 @@ const Page: NextPage = () => {
                 duration: 0.5,
               }}
               whileHover={{
-                scale: "150%",
+                scale: "120%",
+                left: "auto",
+                right: "auto",
+                transition: {
+                  type: "tween",
+                  duration: 0.5,
+                  delay: 0,
+                },
+              }}
+              whileTap={{
+                scale: "120%",
                 left: "auto",
                 right: "auto",
                 transition: {

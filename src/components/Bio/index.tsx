@@ -6,7 +6,7 @@ import headShot from "./assets/Headshot.jpg";
 export default function Bio() {
   return (
     <motion.div
-      className="m-10 flex p-2 align-middle"
+      className="m-10 flex flex-col p-2 align-middle md:flex-row"
       initial={{
         x: -50,
         opacity: "0%",
@@ -23,14 +23,18 @@ export default function Bio() {
       <Image
         src={headShot.src}
         alt="Carl McGee headshot"
-        width={500}
+        width={300}
+        fit="contain"
         withPlaceholder
         styles={(theme) => ({
+          root: {
+            display: "flex",
+            justifyContent: "center",
+          },
           image: {
             borderRadius: 999,
           },
         })}
-        className="mr-10"
       />
       <p className="m-4 flex-1 text-lg text-white">
         <span className="text-3xl">I'm a new junior developer</span> fresh out
