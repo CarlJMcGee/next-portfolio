@@ -12,7 +12,7 @@ import { useHover, useMediaQuery } from "@mantine/hooks";
 import { Project } from "@prisma/client";
 import { motion } from "framer-motion";
 import * as React from "react";
-import { MotionCardSection } from "../ManteenMotion";
+import MotionCardSection from "../ManteenMotion";
 
 import { useMergedRef } from "@mantine/hooks";
 
@@ -27,7 +27,7 @@ export interface IProjectCardProps {
   sess: Session | null;
 }
 
-const ProjectCardStatic = React.forwardRef(
+export const ProjectCardStatic = React.forwardRef(
   (
     { project, sess }: IProjectCardProps,
     ref: React.ForwardedRef<HTMLDivElement>
@@ -210,5 +210,7 @@ const ProjectCardStatic = React.forwardRef(
     );
   }
 );
+ProjectCardStatic.displayName = "ProjectCardStatic";
 
-export const MotionProjectCard = motion(ProjectCardStatic);
+const MotionProjectCard = motion(ProjectCardStatic);
+export default MotionProjectCard;

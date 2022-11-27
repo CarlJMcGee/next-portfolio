@@ -6,7 +6,7 @@ interface IMotionCardSection extends CardSectionProps {
   children: React.ReactNode;
 }
 
-const cardproto = React.forwardRef(
+export const Cardproto = React.forwardRef(
   (props: IMotionCardSection, ref: React.ForwardedRef<HTMLDivElement>) => {
     const { children, ...sectionProps } = props;
     return (
@@ -16,5 +16,7 @@ const cardproto = React.forwardRef(
     );
   }
 );
+Cardproto.displayName = "Cardproto";
 
-export const MotionCardSection = motion(cardproto);
+const MotionCardSection = motion(Cardproto);
+export default MotionCardSection;

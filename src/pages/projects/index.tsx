@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { Button } from "../../components/Button";
-import { MotionProjectCard } from "../../components/ProjectCard";
+import MotionProjectCard from "../../components/ProjectCard";
 import { trpc } from "../../utils/trpc";
 
 const Page: NextPage = () => {
