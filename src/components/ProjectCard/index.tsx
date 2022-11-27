@@ -147,7 +147,7 @@ export const ProjectCardStatic = React.forwardRef(
             </MotionCardSection>
           )}
           <Card.Section component="a" href={project.link}>
-            <Image src={screenshot.src} alt={`${project.name} screenshot`} />
+            <Image src={project.img} alt={`${project.name} screenshot`} />
           </Card.Section>
         </Card>
         <Modal
