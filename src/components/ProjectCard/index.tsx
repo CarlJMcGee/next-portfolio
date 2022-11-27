@@ -9,16 +9,16 @@ import {
   Badge,
 } from "@mantine/core";
 import { useHover, useMediaQuery } from "@mantine/hooks";
-import { Project } from "@prisma/client";
+import type { Project } from "@prisma/client";
 import { motion } from "framer-motion";
 import * as React from "react";
-import MotionCardSection from "../ManteenMotion";
+import MotionCardSection from "../MantineMotion";
 
 import { useMergedRef } from "@mantine/hooks";
 
 import screenshot from "./Screenshot 2022-11-24 at 12-35-52 Carl McGee.png";
 import { Button } from "../Button";
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 import { trpc } from "../../utils/trpc";
 import { useState } from "react";
 
@@ -77,7 +77,7 @@ export const ProjectCardStatic = React.forwardRef(
         >
           <Card.Section py={"sm"} className={"bg-turquoise-light"}>
             <Group position="center">
-              <h3 className="text-white">{project.name}</h3>
+              <h3 className="text-xl font-bold text-white">{project.name}</h3>
             </Group>
           </Card.Section>
           {(hovered || mobile) && (
@@ -132,13 +132,13 @@ export const ProjectCardStatic = React.forwardRef(
                   ))}
                 </Group>
                 <a
-                  className="w-fit text-purple-light hover:text-purple-dark"
+                  className="w-fit text-blue-300 hover:text-purple-dark"
                   href={project.repo}
                 >
                   {project.repo}
                 </a>
                 <a
-                  className="w-fit text-purple-light hover:text-purple-dark"
+                  className="w-fit text-blue-300 hover:text-purple-dark"
                   href={project.link}
                 >
                   {project.link}

@@ -1,4 +1,5 @@
-import { Card as CardManteen, CardSectionProps } from "@mantine/core";
+import { Card as CardManteen } from "@mantine/core";
+import type { CardSectionProps } from "@mantine/core/";
 import { motion } from "framer-motion";
 import React from "react";
 
@@ -11,7 +12,7 @@ export const Cardproto = React.forwardRef(
     const { children, ...sectionProps } = props;
     return (
       <CardManteen.Section ref={ref} {...sectionProps}>
-        {props.children}
+        {children}
       </CardManteen.Section>
     );
   }

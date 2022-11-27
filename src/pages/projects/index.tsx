@@ -1,6 +1,6 @@
 import { Modal, TextInput, Textarea } from "@mantine/core";
-import { motion, MotionConfig } from "framer-motion";
-import { NextPage } from "next";
+import { motion } from "framer-motion";
+import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { Button } from "../../components/Button";
@@ -137,7 +137,7 @@ const Page: NextPage = () => {
         className={`col-span-1 grid grid-cols-1 justify-items-center md:grid-cols-2`}
       >
         {projects &&
-          projects.map((project, i) => (
+          projects.map((project) => (
             <MotionProjectCard
               variants={projectVar}
               transition={{

@@ -3,12 +3,10 @@ import { motion } from "framer-motion";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import * as React from "react";
-import { useState } from "react";
 import github from "./assets/GitHub-Mark-Light-64px.png";
 import linkedIn from "./assets/In-White-48@2x.png";
 
 export default function Foot() {
-  const [open, setOpen] = useState(false);
   const loginHandler = (e: React.MouseEvent) => {
     e.preventDefault();
 
@@ -31,7 +29,7 @@ export default function Foot() {
         type: "tween",
         duration: 0.8,
       }}
-      className="fixed bottom-0 my-10 w-full"
+      className="my-10 w-full"
     >
       <Group position="center">
         <p className="text-center text-lg text-white" onClick={loginHandler}>
@@ -48,6 +46,14 @@ export default function Foot() {
             type: "spring",
             delay: 1,
           }}
+          whileHover={{
+            scale: "150%",
+            transition: {
+              type: "spring",
+              bounce: 0.8,
+              delay: 0,
+            },
+          }}
           href="https://github.com/CarlJMcGee"
         >
           <Image src={github.src} alt="github logo" width={30} height={30} />
@@ -62,6 +68,14 @@ export default function Foot() {
           transition={{
             type: "spring",
             delay: 1.3,
+          }}
+          whileHover={{
+            scale: "150%",
+            transition: {
+              type: "spring",
+              bounce: 0.8,
+              delay: 0,
+            },
           }}
           href="https://www.linkedin.com/in/carl-mcgee-3b9648a0/"
         >

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import * as React from "react";
-import { type } from "os";
 
 interface IButtonProps extends React.PropsWithChildren {
   onClick?: (() => any) | (() => void);

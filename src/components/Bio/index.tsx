@@ -26,7 +26,7 @@ export default function Bio() {
         width={300}
         fit="contain"
         withPlaceholder
-        styles={(theme) => ({
+        styles={() => ({
           root: {
             display: "flex",
             justifyContent: "center",
