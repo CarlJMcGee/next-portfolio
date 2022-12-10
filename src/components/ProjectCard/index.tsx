@@ -39,12 +39,22 @@ export const ProjectCardStatic = React.forwardRef(
 
     const { mutate: editProject } = trpc.project.edit.useMutation({
       onSuccess: () => {
-        utils.project.invalidate();
+        utils.project.getAll.invalidate();
       },
     });
     const { mutate: deleteProject } = trpc.project.delete.useMutation({
       onSuccess: () => {
-        utils.project.invalidate();
+        utils.project.getAll.invalidate();
+      },
+    });
+    const { mutate: rankUp } = trpc.project.rankUp.useMutation({
+      onSuccess: () => {
+        utils.project.getAll.invalidate();
+      },
+    });
+    const { mutate: rankDown } = trpc.project.rankDown.useMutation({
+      onSuccess: () => {
+        utils.project.getAll.invalidate();
       },
     });
 
@@ -97,26 +107,48 @@ export const ProjectCardStatic = React.forwardRef(
               m={3}
             >
               {sess?.user ? (
-                <Group position="right">
-                  <Button
-                    color="bg-lime-500"
-                    hover="hover:bg-lime-400"
-                    onClick={() => {
-                      setOpen(true);
-                    }}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    color="bg-red-500"
-                    hover="hover:bg-red-400"
-                    onClick={() => {
-                      deleteProject({ id: project.id });
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </Group>
+                <>
+                  <Group position="right" my={"sm"}>
+                    <Button
+                      color="bg-lime-500"
+                      hover="hover:bg-lime-400"
+                      onClick={() => {
+                        setOpen(true);
+                      }}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      color="bg-red-500"
+                      hover="hover:bg-red-400"
+                      onClick={() => {
+                        deleteProject({ id: project.id });
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </Group>
+                  <Group position="right">
+                    <Button
+                      color="bg-slate-500"
+                      hover="hover:bg-slate-400"
+                      onClick={() => {
+                        rankUp({ id: project.id });
+                      }}
+                    >
+                      🔼
+                    </Button>
+                    <Button
+                      color="bg-slate-500"
+                      hover="hover:bg-slate-400"
+                      onClick={() => {
+                        rankDown({ id: project.id });
+                      }}
+                    >
+                      🔽
+                    </Button>
+                  </Group>
+                </>
               ) : null}{" "}
               <Stack justify={"center"} className="text-white">
                 <p className="">{project.desc}</p>

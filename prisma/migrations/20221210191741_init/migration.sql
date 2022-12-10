@@ -1,6 +1,7 @@
 -- CreateTable
 CREATE TABLE "Project" (
     "id" TEXT NOT NULL,
+    "rank" INTEGER NOT NULL,
     "name" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
     "tech" TEXT NOT NULL,
