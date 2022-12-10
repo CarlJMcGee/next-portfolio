@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build:next && npm run  build:prisma",
     "build:next": "next build",
-    "build:prisma": "npx prisma deploy",
+    "build:prisma": "npx prisma migrate deploy",
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
