@@ -134,7 +134,7 @@ const Page: NextPage = () => {
         variants={projectContainerVar}
         initial="hidden"
         animate="show"
-        className={`col-span-1 grid grid-cols-1 justify-items-center md:grid-cols-2`}
+        className={`col-span-1 grid grid-cols-1 items-start justify-items-center md:grid-cols-2`}
       >
         {projects &&
           projects.map((project) => (
