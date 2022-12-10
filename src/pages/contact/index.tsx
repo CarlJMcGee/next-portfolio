@@ -21,6 +21,7 @@ const ContactPage: NextPage = () => {
     hidden: {
       opacity: "0%",
       x: -200,
+      scale: "100%",
     },
     show: {
       opacity: "100%",
@@ -46,35 +47,65 @@ const ContactPage: NextPage = () => {
         animate="show"
         className="m-4 flex flex-col justify-center gap-10 text-xl md:flex-row"
       >
-        <motion.h3 variants={contactItems} className="text-white">
-          Email me at{" "}
+        <motion.h3
+          variants={contactItems}
+          className="text-white"
+          whileHover={{
+            scale: "120%",
+            transition: {
+              type: "tween",
+              duration: 0.25,
+            },
+          }}
+        >
+          &lt;Email me at{" "}
           <a
-            className="text-blue-600 hover:text-blue-300"
+            className="text-blue-400 hover:text-turquoise-light"
             href="mailto:Carl.Jack.McGee@gmail.com"
           >
             Carl.Jack.McGee@gmail.com
           </a>
-          ;
+          /&gt;
         </motion.h3>
-        <motion.h3 variants={contactItems} className="text-white">
-          Message me on{" "}
+        <motion.h3
+          variants={contactItems}
+          className="text-white"
+          whileHover={{
+            scale: "120%",
+            transition: {
+              type: "tween",
+              duration: 0.25,
+            },
+          }}
+        >
+          &lt;Message me on{" "}
           <a
-            className="text-blue-600 hover:text-blue-300"
+            className="text-blue-400 hover:text-turquoise-light"
             href="https://www.linkedin.com/in/carl-mcgee-3b9648a0/"
           >
             LinkedIn
           </a>
-          ;
+          /&gt;
         </motion.h3>
-        <motion.h3 variants={contactItems} className="text-white">
-          Post an issue at my{" "}
+        <motion.h3
+          variants={contactItems}
+          className="text-white"
+          whileHover={{
+            scale: "120%",
+            transition: {
+              type: "tween",
+              duration: 0.25,
+            },
+          }}
+        >
+          &lt;Post an issue at my{" "}
           <a
-            className="text-blue-600 hover:text-blue-300"
+            className="text-blue-400 hover:text-turquoise-light"
             href="https://github.com/CarlJMcGee"
           >
             Github
           </a>
-          ;
+          /&gt;
         </motion.h3>
       </motion.div>
 
