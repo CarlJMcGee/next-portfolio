@@ -14,7 +14,7 @@ const Page: NextPage = () => {
   const { data: projects } = trpc.project.getAll.useQuery();
   const { mutate: addProject } = trpc.project.new.useMutation({
     onSuccess: () => {
-      utils.project.invalidate();
+      utils.project.getAll.invalidate();
     },
   });
   const [open, setOpen] = useState(false);
