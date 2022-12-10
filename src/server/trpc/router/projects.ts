@@ -137,6 +137,24 @@ export const projectRouter = router({
     .mutation(async ({ ctx, input }) => {
       const Project = ctx.prisma.project;
 
+      const currProject = await Project.findUnique({ where: { id: input.id } });
+      if (currProject === null)
+        throw new TRPCError({
+          message: `Project not found`,
+          code: "NOT_FOUND",
+        });
+
+      await Project.updateMany({
+        where: {
+          rank: {
+            gt: currProject.rank,
+          },
+        },
+        data: {
+          rank: { decrement: 1 },
+        },
+      });
+
       await Project.delete({
         where: {
           id: input.id,
