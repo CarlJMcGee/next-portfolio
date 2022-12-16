@@ -143,7 +143,7 @@ const ContactPage: NextPage = () => {
             bounce: 0.7,
             delay: 2.7,
           }}
-          href={"./assets/Carl_McGee-Resume.pdf"}
+          href={"./assets/Carl McGee - Resume.pdf"}
           download="Carl McGee - Resume"
         >
           <Button hover="hover:bg-turquoise-light" classname="py-2">
