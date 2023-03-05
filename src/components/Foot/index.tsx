@@ -33,7 +33,7 @@ export default function Foot() {
     >
       <Group position="center">
         <p className="text-center text-lg text-white" onClick={loginHandler}>
-          Carl McGee 2022
+          Carl McGee 2023
         </p>
         <motion.a
           initial={{
