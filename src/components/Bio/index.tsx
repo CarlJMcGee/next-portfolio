@@ -37,22 +37,19 @@ export default function Bio() {
         })}
       />
       <p className="m-4 flex-1 text-lg text-white">
-        <span className="text-3xl">I&apos;m a new junior developer</span> fresh
-        out of coding bootcamp. I&apos;m leaving a five year career in
-        Phlebotomy and blood product donation to persue a career in web
-        development and I&apos;m ready to take on new opportunities and
-        challenges.
+        <span className="text-3xl">Adaptable Software Engineer</span>
+        experienced in developing, testing, and maintaining software
+        applications. Strong grasp of coding fundamentals and debugging
+        processes combined with proactive problem-solving, root-cause analysis
+        abilities. Proven contributor in collaborative Agile environments,
+        delivering high-quality solutions that drive business objectives.
         <br />
         <br />
-        I have recently received a Full Stack Web Development certificate from
-        the University of Minnesota Coding Bootcamp program. There I gained
-        experience working with MVC and Progressive Javascript and Typescript
-        web applications in both vanilla JS using Handlebars and single-page
-        sites with React and Next.js. I am proficient in using MySQL and
-        sequelize, MongoDB and Mongoose, Prisma, tRPC, GraphQL, Express.js
-        servers, Next.js with and without a server, Next Auth, Tailwind,
-        Bootstrap and Bulma CSS libraries, server session store and client JSON
-        Web Tokens, and Jest unit testing.
+        Detailed oriented and passionate about learning new technologies, I am
+        experienced working with web technologies like React and Springboot as
+        well as modern CI/CD pipelines like Jenkins, Urban Code Deploy, and
+        Harness. I have a strong familiarity of Agile methodologies and have
+        experience working in fast-paced, highly regulated environments.
         <br />
         <br />
         My background using donor management systems working in blood collection
